@@ -3,10 +3,13 @@ package ppt.com.ppt.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import ppt.com.ppt.R;
 import ppt.com.ppt.utils.MyUtil;
 import ppt.com.ppt.view.BaseHomeView;
 
@@ -14,11 +17,41 @@ import ppt.com.ppt.view.BaseHomeView;
  * Created by Caiwnj on 2016/12/15.
  */
 
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
 
-    private View mRootView;
+    private BaseHomeView mRootView;
 
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {//这里要返回一个VIew，这个是一个基本布局
-        return new BaseHomeView(MyUtil.getContext());
+    public BaseFragment() {
+        this.mRootView = new BaseHomeView(MyUtil.getContext(), getClass().getName()) {
+            public ResultState initData() {
+                return BaseFragment.this.initData();
+            }
+
+            public View initSuccessView() {
+                return initView();
+            }
+        };
+    }
+
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
+        return mRootView;
+    }
+
+
+    public View getRootView() {
+        return mRootView;
+    }
+
+    public abstract BaseHomeView.ResultState initData();
+
+    public abstract View initView();
+
+    public void loadData() {
+        if (mRootView != null) {
+            mRootView.loadData();
+            Log.d("loadData", "loadData");
+        }
     }
 }

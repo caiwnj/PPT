@@ -28,7 +28,8 @@
                 android:layout_width="66dp"
                 android:layout_height="66dp"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/login"
+                android:tint="@color/colorText_2" />
 
 
             <TextView
@@ -140,7 +141,11 @@
     </LinearLayout>
 
     <ListView
+        android:id="@+id/lv_nav"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"></ListView>
+        android:layout_weight="1"
+        android:divider="@android:color/transparent"></ListView>
+
+
 </LinearLayout>
