@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tab_main;
     private ViewPager vp_main;
     private String[] mTabs;
+    private Toolbar toolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +32,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        initToolBar();
         tab_main = (TabLayout) findViewById(R.id.tab_main);
         vp_main = (ViewPager) findViewById(R.id.vp_main);
         FragmentManager fm = getSupportFragmentManager();
         HomeViewPagerAdapter homeAdapter = new HomeViewPagerAdapter(fm);
         vp_main.setAdapter(homeAdapter);
         tab_main.setupWithViewPager(vp_main);
+    }
+
+    private void initToolBar() {
+        toolBar = (Toolbar) findViewById(R.id.toobal);
+        setSupportActionBar(toolBar);
     }
 
     class HomeViewPagerAdapter extends FragmentPagerAdapter {
