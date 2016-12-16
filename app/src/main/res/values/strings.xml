@@ -6,4 +6,10 @@
         <item>消息</item>
         <item>我</item>
     </string-array>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="YOUMA">youma</string>
+    <string name="FIND">find</string>
+    <string name="MESSAGE">message</string>
+    <string name="ME">me</string>
 </resources>

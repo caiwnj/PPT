@@ -15,19 +15,9 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"></android.support.v7.widget.Toolbar>
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
-        app:tabIndicatorColor="#CFD8DC" />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_main"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
+ <FrameLayout
+     android:id="@+id/fl_content"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"></FrameLayout>
 
 </LinearLayout>
