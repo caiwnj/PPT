@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -27,7 +28,9 @@ import ppt.com.ppt.R;
 import ppt.com.ppt.fragment.BaseFragment;
 import ppt.com.ppt.fragment.FragmentFactory;
 import ppt.com.ppt.fragment.YoumaFragment;
+import ppt.com.ppt.global.Constants;
 import ppt.com.ppt.utils.MyUtil;
+import ppt.com.ppt.utils.SharedPreferencesUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
@@ -127,18 +130,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View v) {//侧边小item的点击事件
+        boolean haveLogin = SharedPreferencesUtil.getSharedPreferences(Constants.HAVELOGIN, false);
+        ;
         switch (v.getId()) {
             case R.id.ll_collection:
                 goToActivity(CollectionActivity.class);
                 break;
             case R.id.ll_comment:
-
+                if (haveLogin) {
+                    Toast.makeText(MyUtil.getContext(), "HAVELOGIN", Toast.LENGTH_SHORT).show();
+                } else {
+                    goToActivity(LoginActivity.class);
+                }
                 break;
             case R.id.ll_read:
-
+                if (haveLogin) {
+                    Toast.makeText(MyUtil.getContext(), "HAVELOGIN", Toast.LENGTH_SHORT).show();
+                } else {
+                    goToActivity(LoginActivity.class);
+                }
                 break;
             case R.id.rl_login:
-                goToActivity(LoginActivity.class);
+                if (haveLogin) {
+                    Toast.makeText(MyUtil.getContext(), "HAVELOGIN", Toast.LENGTH_SHORT).show();
+                } else {
+                    goToActivity(LoginActivity.class);
+                }
                 break;
             default:
                 break;

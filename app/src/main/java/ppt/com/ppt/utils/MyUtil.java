@@ -1,9 +1,12 @@
 package ppt.com.ppt.utils;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Process;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import ppt.com.ppt.global.MyApplication;
@@ -87,6 +90,15 @@ public class MyUtil {
             r.run();
         } else {
             getHandler().post(r);
+        }
+    }
+
+    public static void goToActivity(Class c, boolean finish) {
+        Intent intent = new Intent(MyUtil.getContext(), c);
+        MyUtil.getContext().startActivity(intent);
+        if (finish) {
+            AppCompatActivity appCompatActivity = (AppCompatActivity) MyUtil.getContext();
+            appCompatActivity.finish();
         }
     }
 

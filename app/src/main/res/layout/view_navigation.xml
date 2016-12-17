@@ -121,7 +121,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/collect"
+                        android:src="@mipmap/my"
                         android:tint="@color/colorText_2" />
 
                     <TextView
@@ -129,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:ems="2"
-                        android:text="阅读"
+                        android:text="我的"
                         android:textColor="@color/colorText_2" />
                 </LinearLayout>
             </LinearLayout>
