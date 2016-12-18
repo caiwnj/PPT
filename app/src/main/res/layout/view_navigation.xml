@@ -28,8 +28,7 @@
                 android:layout_width="66dp"
                 android:layout_height="66dp"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/login"
-                android:tint="@color/colorText_2" />
+                android:src="@drawable/selector_login" />
 
 
             <TextView
@@ -41,7 +40,7 @@
                 android:layout_marginStart="25dp"
                 android:layout_toEndOf="@+id/iv_login_icon"
                 android:text="登录"
-                android:textColor="@color/colorText_2"
+                android:textColor="@drawable/selector_common"
                 android:textSize="16sp" />
         </RelativeLayout>
 
@@ -71,16 +70,16 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/collect"
-                        android:tint="@color/colorText_2" />
+                        android:src="@drawable/selector_collect" />
 
                     <TextView
+                        android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:ems="2"
                         android:text="收藏"
-                        android:textColor="@color/colorText_2" />
+                        android:textColor="@drawable/selector_common" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -96,8 +95,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:scaleType="fitXY"
-                        android:src="@mipmap/comment"
-                        android:tint="@color/colorText_2" />
+                        android:src="@drawable/selector_comment" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -105,7 +103,7 @@
                         android:layout_marginLeft="8dp"
                         android:ems="2"
                         android:text="评论"
-                        android:textColor="@color/colorText_2" />
+                        android:textColor="@drawable/selector_common" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -121,8 +119,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/my"
-                        android:tint="@color/colorText_2" />
+                        android:src="@drawable/selector_my" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -130,7 +127,7 @@
                         android:layout_marginLeft="8dp"
                         android:ems="2"
                         android:text="我的"
-                        android:textColor="@color/colorText_2" />
+                        android:textColor="@drawable/selector_common" />
                 </LinearLayout>
             </LinearLayout>
 

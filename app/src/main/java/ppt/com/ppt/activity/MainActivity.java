@@ -126,7 +126,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragmentToReplace.loadData();
         fragmentTransaction.commit();
         mCurrentFragmentName = fragmentName;
-        Log.d("mCurrentFragmentName", mCurrentFragmentName + "");
     }
 
     public void onClick(View v) {//侧边小item的点击事件
