@@ -35,7 +35,7 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tb_item.setNavigationOnClickListener(this);
         wv_item = (WebView) findViewById(R.id.wv_item);
-        wv_item.loadUrl("http:www.baidu.com");
+        wv_item.loadUrl("http://chanyouji.com/trips/663196");
         wv_item.setWebViewClient(new WebViewClient() {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
