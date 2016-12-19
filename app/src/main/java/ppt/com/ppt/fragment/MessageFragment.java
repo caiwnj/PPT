@@ -1,9 +1,13 @@
 package ppt.com.ppt.fragment;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import ppt.com.ppt.R;
+import ppt.com.ppt.activity.MainActivity;
 import ppt.com.ppt.utils.MyUtil;
 import ppt.com.ppt.view.BaseHomeView;
 
@@ -12,6 +16,8 @@ import ppt.com.ppt.view.BaseHomeView;
  */
 
 public class MessageFragment extends BaseFragment {
+
+
     @Override
     public BaseHomeView.ResultState initData() {
         return BaseHomeView.ResultState.STATE_SUCCESS;
@@ -19,10 +25,8 @@ public class MessageFragment extends BaseFragment {
 
     @Override
     public View initView() {
-        TextView textView=new TextView(MyUtil.getContext());
-        textView.setText(getClass().getSimpleName());
-        textView.setTextColor(MyUtil.getColor(R.color.colorText));
-        textView.setTextSize(36);
-        return textView;
+        View view = MyUtil.inFlate(R.layout.fragment_message);
+        return view;
     }
+
 }

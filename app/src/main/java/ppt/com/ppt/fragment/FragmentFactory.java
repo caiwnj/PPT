@@ -28,7 +28,7 @@ public class FragmentFactory {
                     fragment = new MessageFragment();
                     break;
                 case SEARCH:
-                    fragment = new SearchFragment();
+                    fragment = new MarketFragment();
                     break;
                 case SETTING:
                     fragment = new SettingFragment();

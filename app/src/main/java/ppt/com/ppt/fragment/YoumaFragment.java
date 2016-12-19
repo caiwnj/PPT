@@ -53,8 +53,8 @@ public class YoumaFragment extends BaseFragment implements View.OnClickListener,
         }
         for (int i = 0; i < 10; i++) {
             YoumaJavaBean youmaJavaBean = new YoumaJavaBean();
-            youmaJavaBean.setDescription("description" + i);
-            youmaJavaBean.setTitle("Title" + i);
+            youmaJavaBean.setDescription("这个是游玩消息" + i);
+            youmaJavaBean.setTitle("游玩消息" + i);
             if (i < 4) {
                 HeadData headData = new HeadData();
                 switch (i) {
@@ -129,8 +129,8 @@ public class YoumaFragment extends BaseFragment implements View.OnClickListener,
                 }
                 for (int i = 0; i < 10; i++) {
                     YoumaJavaBean youmaJavaBean = new YoumaJavaBean();
-                    youmaJavaBean.setDescription("description" + i);
-                    youmaJavaBean.setTitle("Title" + i);
+                    youmaJavaBean.setDescription("这个是游玩消息" + i);
+                    youmaJavaBean.setTitle("游玩消息" + i);
                     youmaList2.add(youmaJavaBean);
                 }
                 youmaList.addAll(youmaList2);

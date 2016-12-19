@@ -37,7 +37,6 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
         wv_item = (WebView) findViewById(R.id.wv_item);
         wv_item.loadUrl("http:www.baidu.com");
         wv_item.setWebViewClient(new WebViewClient() {
-            @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return true;

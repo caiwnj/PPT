@@ -23,7 +23,7 @@ public class SplashActivity extends Activity {
         iv_splash = (ImageView) findViewById(R.id.iv_splash);
         // 渐变动画 AlphaAnimation
         AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
-        alphaAnimation.setDuration(2000);
+        alphaAnimation.setDuration(1500);
         alphaAnimation.setFillAfter(true);
         iv_splash.setAnimation(alphaAnimation);
         alphaAnimation.setAnimationListener(new Animation.AnimationListener() {

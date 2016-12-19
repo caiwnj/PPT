@@ -34,13 +34,14 @@ import ppt.com.ppt.utils.SharedPreferencesUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
+    private static final int LOGIN = 0;
     private Toolbar toolBar;
     private LinearLayout ll_collection;
     private ActionBarDrawerToggle toggle;
     private DrawerLayout drawer;
     private LinearLayout ll_comment;
     private ListView lv_nav;
-    private int[] iconList = {R.mipmap.youma, R.mipmap.youji, R.mipmap.message, R.mipmap.search, R.mipmap.setting};
+    private int[] iconList = {R.mipmap.youma, R.mipmap.youji, R.mipmap.message, R.mipmap.market, R.mipmap.setting};
     private String[] itemnameList = MyUtil.getStringArray(R.array.item_name);
     private int mCurrentSelecterItem = 0;
     private NavAdapter navAdapter;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String[] mitemnameList = MyUtil.getStringArray(R.array.item_stringname);
     private RelativeLayout fl_login;
     private LinearLayout ll_read;
+    private TextView tv_login_name;
+    private ImageView iv_login_icon;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initToolBar();
         initDrawable();
         setContentFragment(FragmentFactory.YOUMA);
+
     }
 
     private void initDrawable() {
@@ -72,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ll_read = (LinearLayout) findViewById(R.id.ll_read);
         lv_nav = (ListView) findViewById(R.id.lv_nav);
         fl_login = (RelativeLayout) findViewById(R.id.rl_login);
+        iv_login_icon = (ImageView) findViewById(R.id.iv_login_icon);
+        tv_login_name = (TextView) findViewById(R.id.tv_login_name);
         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolBar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -133,27 +139,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ;
         switch (v.getId()) {
             case R.id.ll_collection:
-                goToActivity(CollectionActivity.class);
+                if (haveLogin) {
+                    goToActivity(CollectionActivity.class, false);
+                } else {
+                    goToActivity(LoginActivity.class, true);
+                }
                 break;
             case R.id.ll_comment:
                 if (haveLogin) {
-                    Toast.makeText(MyUtil.getContext(), "HAVELOGIN", Toast.LENGTH_SHORT).show();
+                    goToActivity(LoginedActivity.class, false);
                 } else {
-                    goToActivity(LoginActivity.class);
+                    goToActivity(LoginActivity.class, true);
                 }
                 break;
             case R.id.ll_read:
                 if (haveLogin) {
-                    Toast.makeText(MyUtil.getContext(), "HAVELOGIN", Toast.LENGTH_SHORT).show();
+                    goToActivity(LoginedActivity.class, false);
                 } else {
-                    goToActivity(LoginActivity.class);
+                    goToActivity(LoginActivity.class, true);
                 }
                 break;
             case R.id.rl_login:
                 if (haveLogin) {
-                    Toast.makeText(MyUtil.getContext(), "HAVELOGIN", Toast.LENGTH_SHORT).show();
+                    goToActivity(LoginedActivity.class, false);
                 } else {
-                    goToActivity(LoginActivity.class);
+                    goToActivity(LoginActivity.class, true);
                 }
                 break;
             default:
@@ -198,8 +208,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void goToActivity(Class c) {
+    public void goToActivity(Class c, boolean forResult) {
         Intent intent = new Intent(MyUtil.getContext(), c);
-        startActivity(intent);
+        if (forResult) {
+            startActivityForResult(intent, LOGIN);
+        } else {
+            startActivity(intent);
+        }
+
+
     }
+
+    public void setLoginIcon(int iconId) {
+        iv_login_icon.setImageResource(iconId);
+    }
+
+    public void setLoginName(String s) {
+        tv_login_name.setText(s);
+    }
+
 }

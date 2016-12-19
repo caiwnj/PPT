@@ -11,5 +11,7 @@ import java.util.HashMap;
 
 public class Constants {
     public final static String HAVELOGIN = "havelogin";
+    public final static String ACCOUNT = "account";
+    public final static String PASSWORLD = "passworld";
     public static HashMap<Integer,Boolean> isClicked=new HashMap<Integer, Boolean>();
 }

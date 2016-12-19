@@ -24,4 +24,19 @@ public class SharedPreferencesUtil {
         return b;
     }
 
+    public static void saveSharedPreferences(String key, String value) {
+        if (mSharedPreferences == null) {
+            mSharedPreferences = MyUtil.getContext().getSharedPreferences("config", MyUtil.getContext().MODE_PRIVATE);
+        }
+        mSharedPreferences.edit().putString(key, value).commit();
+    }
+
+    public static String getSharedPreferences(String key, String defValue) {
+        if (mSharedPreferences == null) {
+            mSharedPreferences = MyUtil.getContext().getSharedPreferences("config", MyUtil.getContext().MODE_PRIVATE);
+        }
+        String value = mSharedPreferences.getString(key, defValue);
+        return value;
+    }
+
 }
